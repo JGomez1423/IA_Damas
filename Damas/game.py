@@ -29,12 +29,14 @@ class Game:
                 self.selected = None
                 self.select(row, col)
         
+        
         pieza = self. tablero.get_piece(row, col)
         if pieza !=0 and pieza.color == self.turn:
             self.selected = pieza
             self.valid_moves = self.tablero.get_valid_moves(pieza)
+            pygame.display.update()
             return True
-        
+        pygame.display.update()
         return False
     
     def draw_valid_moves(self, moves):
